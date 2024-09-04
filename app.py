@@ -3,7 +3,7 @@ import pandas as pd
 from pypmml import Model
 
 # Cargar el modelo PMML
-model = Model.load('heartdesease.pmml')
+model = Model.load('./heartdesease.pmml')
 
 st.title("Predicción de Enfermedad Cardíaca")
 
