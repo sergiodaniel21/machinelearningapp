@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="USUARIO">
+    <Application name="KNIME" version="5.3.1"/>
+  </Header>
+  <DataDictionary numberOfFields="14">
+    <DataField name="ï»¿age" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="29.0" rightMargin="77.0"/>
+    </DataField>
+    <DataField name="sex" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="cp" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="3.0"/>
+    </DataField>
+    <DataField name="trestbps" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="94.0" rightMargin="200.0"/>
+    </DataField>
+    <DataField name="chol" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="126.0" rightMargin="564.0"/>
+    </DataField>
+    <DataField name="fbs" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="restecg" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="2.0"/>
+    </DataField>
+    <DataField name="thalach" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="71.0" rightMargin="202.0"/>
+    </DataField>
+    <DataField name="exang" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="oldpeak" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="6.2"/>
+    </DataField>
+    <DataField name="slope" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="2.0"/>
+    </DataField>
+    <DataField name="ca" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="4.0"/>
+    </DataField>
+    <DataField name="thal" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="3.0"/>
+    </DataField>
+    <DataField name="target" optype="categorical" dataType="string">
+      <Value value="1"/>
+      <Value value="0"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="binarySplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="ï»¿age" invalidValueTreatment="asIs"/>
+      <MiningField name="sex" invalidValueTreatment="asIs"/>
+      <MiningField name="cp" invalidValueTreatment="asIs"/>
+      <MiningField name="trestbps" invalidValueTreatment="asIs"/>
+      <MiningField name="chol" invalidValueTreatment="asIs"/>
+      <MiningField name="fbs" invalidValueTreatment="asIs"/>
+      <MiningField name="restecg" invalidValueTreatment="asIs"/>
+      <MiningField name="thalach" invalidValueTreatment="asIs"/>
+      <MiningField name="exang" invalidValueTreatment="asIs"/>
+      <MiningField name="oldpeak" invalidValueTreatment="asIs"/>
+      <MiningField name="slope" invalidValueTreatment="asIs"/>
+      <MiningField name="ca" invalidValueTreatment="asIs"/>
+      <MiningField name="thal" invalidValueTreatment="asIs"/>
+      <MiningField name="target" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <Node id="0" score="1" recordCount="212.0">
+      <True/>
+      <ScoreDistribution value="1" recordCount="111.0"/>
+      <ScoreDistribution value="0" recordCount="101.0"/>
+      <Node id="1" score="0" recordCount="99.0">
+        <SimplePredicate field="cp" operator="lessOrEqual" value="0.5"/>
+        <ScoreDistribution value="1" recordCount="25.0"/>
+        <ScoreDistribution value="0" recordCount="74.0"/>
+        <Node id="2" score="0" recordCount="44.0">
+          <SimplePredicate field="ca" operator="lessOrEqual" value="0.5"/>
+          <ScoreDistribution value="1" recordCount="21.0"/>
+          <ScoreDistribution value="0" recordCount="23.0"/>
+          <Node id="3" score="1" recordCount="24.0">
+            <SimplePredicate field="thal" operator="lessOrEqual" value="2.5"/>
+            <ScoreDistribution value="1" recordCount="18.0"/>
+            <ScoreDistribution value="0" recordCount="6.0"/>
+            <Node id="4" score="0" recordCount="3.0">
+              <SimplePredicate field="thal" operator="lessOrEqual" value="1.5"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+              <ScoreDistribution value="0" recordCount="3.0"/>
+            </Node>
+            <Node id="5" score="1" recordCount="21.0">
+              <SimplePredicate field="thal" operator="greaterThan" value="1.5"/>
+              <ScoreDistribution value="1" recordCount="18.0"/>
+              <ScoreDistribution value="0" recordCount="3.0"/>
+              <Node id="6" score="0" recordCount="2.0">
+                <SimplePredicate field="thalach" operator="lessOrEqual" value="119.5"/>
+                <ScoreDistribution value="1" recordCount="0.0"/>
+                <ScoreDistribution value="0" recordCount="2.0"/>
+              </Node>
+              <Node id="7" score="1" recordCount="19.0">
+                <SimplePredicate field="thalach" operator="greaterThan" value="119.5"/>
+                <ScoreDistribution value="1" recordCount="18.0"/>
+                <ScoreDistribution value="0" recordCount="1.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="10" score="0" recordCount="20.0">
+            <SimplePredicate field="thal" operator="greaterThan" value="2.5"/>
+            <ScoreDistribution value="1" recordCount="3.0"/>
+            <ScoreDistribution value="0" recordCount="17.0"/>
+            <Node id="11" score="1" recordCount="5.0">
+              <SimplePredicate field="oldpeak" operator="lessOrEqual" value="0.1"/>
+              <ScoreDistribution value="1" recordCount="3.0"/>
+              <ScoreDistribution value="0" recordCount="2.0"/>
+              <Node id="12" score="0" recordCount="2.0">
+                <SimplePredicate field="ï»¿age" operator="lessOrEqual" value="42.0"/>
+                <ScoreDistribution value="1" recordCount="0.0"/>
+                <ScoreDistribution value="0" recordCount="2.0"/>
+              </Node>
+              <Node id="13" score="1" recordCount="3.0">
+                <SimplePredicate field="ï»¿age" operator="greaterThan" value="42.0"/>
+                <ScoreDistribution value="1" recordCount="3.0"/>
+                <ScoreDistribution value="0" recordCount="0.0"/>
+              </Node>
+            </Node>
+            <Node id="14" score="0" recordCount="15.0">
+              <SimplePredicate field="oldpeak" operator="greaterThan" value="0.1"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+              <ScoreDistribution value="0" recordCount="15.0"/>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="15" score="0" recordCount="55.0">
+          <SimplePredicate field="ca" operator="greaterThan" value="0.5"/>
+          <ScoreDistribution value="1" recordCount="4.0"/>
+          <ScoreDistribution value="0" recordCount="51.0"/>
+          <Node id="16" score="0" recordCount="5.0">
+            <SimplePredicate field="trestbps" operator="lessOrEqual" value="109.0"/>
+            <ScoreDistribution value="1" recordCount="2.0"/>
+            <ScoreDistribution value="0" recordCount="3.0"/>
+            <Node id="17" score="1" recordCount="2.0">
+              <SimplePredicate field="chol" operator="lessOrEqual" value="233.5"/>
+              <ScoreDistribution value="1" recordCount="2.0"/>
+              <ScoreDistribution value="0" recordCount="0.0"/>
+            </Node>
+            <Node id="18" score="0" recordCount="3.0">
+              <SimplePredicate field="chol" operator="greaterThan" value="233.5"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+              <ScoreDistribution value="0" recordCount="3.0"/>
+            </Node>
+          </Node>
+          <Node id="19" score="0" recordCount="50.0">
+            <SimplePredicate field="trestbps" operator="greaterThan" value="109.0"/>
+            <ScoreDistribution value="1" recordCount="2.0"/>
+            <ScoreDistribution value="0" recordCount="48.0"/>
+            <Node id="20" score="0" recordCount="39.0">
+              <SimplePredicate field="ï»¿age" operator="lessOrEqual" value="63.5"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+              <ScoreDistribution value="0" recordCount="39.0"/>
+            </Node>
+            <Node id="21" score="0" recordCount="11.0">
+              <SimplePredicate field="ï»¿age" operator="greaterThan" value="63.5"/>
+              <ScoreDistribution value="1" recordCount="2.0"/>
+              <ScoreDistribution value="0" recordCount="9.0"/>
+              <Node id="22" score="0" recordCount="8.0">
+                <SimplePredicate field="restecg" operator="lessOrEqual" value="0.5"/>
+                <ScoreDistribution value="1" recordCount="0.0"/>
+                <ScoreDistribution value="0" recordCount="8.0"/>
+              </Node>
+              <Node id="23" score="1" recordCount="3.0">
+                <SimplePredicate field="restecg" operator="greaterThan" value="0.5"/>
+                <ScoreDistribution value="1" recordCount="2.0"/>
+                <ScoreDistribution value="0" recordCount="1.0"/>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+      <Node id="24" score="1" recordCount="113.0">
+        <SimplePredicate field="cp" operator="greaterThan" value="0.5"/>
+        <ScoreDistribution value="1" recordCount="86.0"/>
+        <ScoreDistribution value="0" recordCount="27.0"/>
+        <Node id="25" score="1" recordCount="67.0">
+          <SimplePredicate field="ï»¿age" operator="lessOrEqual" value="56.5"/>
+          <ScoreDistribution value="1" recordCount="60.0"/>
+          <ScoreDistribution value="0" recordCount="7.0"/>
+          <Node id="26" score="1" recordCount="65.0">
+            <SimplePredicate field="oldpeak" operator="lessOrEqual" value="3.55"/>
+            <ScoreDistribution value="1" recordCount="60.0"/>
+            <ScoreDistribution value="0" recordCount="5.0"/>
+            <Node id="27" score="1" recordCount="46.0">
+              <SimplePredicate field="ca" operator="lessOrEqual" value="0.5"/>
+              <ScoreDistribution value="1" recordCount="45.0"/>
+              <ScoreDistribution value="0" recordCount="1.0"/>
+            </Node>
+            <Node id="32" score="1" recordCount="19.0">
+              <SimplePredicate field="ca" operator="greaterThan" value="0.5"/>
+              <ScoreDistribution value="1" recordCount="15.0"/>
+              <ScoreDistribution value="0" recordCount="4.0"/>
+              <Node id="33" score="1" recordCount="16.0">
+                <SimplePredicate field="thal" operator="lessOrEqual" value="2.5"/>
+                <ScoreDistribution value="1" recordCount="14.0"/>
+                <ScoreDistribution value="0" recordCount="2.0"/>
+                <Node id="34" score="1" recordCount="4.0">
+                  <SimplePredicate field="thalach" operator="lessOrEqual" value="145.5"/>
+                  <ScoreDistribution value="1" recordCount="2.0"/>
+                  <ScoreDistribution value="0" recordCount="2.0"/>
+                  <Node id="35" score="0" recordCount="2.0">
+                    <SimplePredicate field="oldpeak" operator="lessOrEqual" value="1.1"/>
+                    <ScoreDistribution value="1" recordCount="0.0"/>
+                    <ScoreDistribution value="0" recordCount="2.0"/>
+                  </Node>
+                  <Node id="36" score="1" recordCount="2.0">
+                    <SimplePredicate field="oldpeak" operator="greaterThan" value="1.1"/>
+                    <ScoreDistribution value="1" recordCount="2.0"/>
+                    <ScoreDistribution value="0" recordCount="0.0"/>
+                  </Node>
+                </Node>
+                <Node id="37" score="1" recordCount="12.0">
+                  <SimplePredicate field="thalach" operator="greaterThan" value="145.5"/>
+                  <ScoreDistribution value="1" recordCount="12.0"/>
+                  <ScoreDistribution value="0" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="38" score="0" recordCount="3.0">
+                <SimplePredicate field="thal" operator="greaterThan" value="2.5"/>
+                <ScoreDistribution value="1" recordCount="1.0"/>
+                <ScoreDistribution value="0" recordCount="2.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="39" score="0" recordCount="2.0">
+            <SimplePredicate field="oldpeak" operator="greaterThan" value="3.55"/>
+            <ScoreDistribution value="1" recordCount="0.0"/>
+            <ScoreDistribution value="0" recordCount="2.0"/>
+          </Node>
+        </Node>
+        <Node id="40" score="1" recordCount="46.0">
+          <SimplePredicate field="ï»¿age" operator="greaterThan" value="56.5"/>
+          <ScoreDistribution value="1" recordCount="26.0"/>
+          <ScoreDistribution value="0" recordCount="20.0"/>
+          <Node id="41" score="1" recordCount="18.0">
+            <SimplePredicate field="sex" operator="lessOrEqual" value="0.5"/>
+            <ScoreDistribution value="1" recordCount="15.0"/>
+            <ScoreDistribution value="0" recordCount="3.0"/>
+            <Node id="42" score="0" recordCount="2.0">
+              <SimplePredicate field="ï»¿age" operator="lessOrEqual" value="59.0"/>
+              <ScoreDistribution value="1" recordCount="0.0"/>
+              <ScoreDistribution value="0" recordCount="2.0"/>
+            </Node>
+            <Node id="43" score="1" recordCount="16.0">
+              <SimplePredicate field="ï»¿age" operator="greaterThan" value="59.0"/>
+              <ScoreDistribution value="1" recordCount="15.0"/>
+              <ScoreDistribution value="0" recordCount="1.0"/>
+            </Node>
+          </Node>
+          <Node id="46" score="0" recordCount="28.0">
+            <SimplePredicate field="sex" operator="greaterThan" value="0.5"/>
+            <ScoreDistribution value="1" recordCount="11.0"/>
+            <ScoreDistribution value="0" recordCount="17.0"/>
+            <Node id="47" score="1" recordCount="16.0">
+              <SimplePredicate field="ca" operator="lessOrEqual" value="0.5"/>
+              <ScoreDistribution value="1" recordCount="10.0"/>
+              <ScoreDistribution value="0" recordCount="6.0"/>
+              <Node id="48" score="1" recordCount="11.0">
+                <SimplePredicate field="chol" operator="lessOrEqual" value="271.5"/>
+                <ScoreDistribution value="1" recordCount="10.0"/>
+                <ScoreDistribution value="0" recordCount="1.0"/>
+              </Node>
+              <Node id="51" score="0" recordCount="5.0">
+                <SimplePredicate field="chol" operator="greaterThan" value="271.5"/>
+                <ScoreDistribution value="1" recordCount="0.0"/>
+                <ScoreDistribution value="0" recordCount="5.0"/>
+              </Node>
+            </Node>
+            <Node id="52" score="0" recordCount="12.0">
+              <SimplePredicate field="ca" operator="greaterThan" value="0.5"/>
+              <ScoreDistribution value="1" recordCount="1.0"/>
+              <ScoreDistribution value="0" recordCount="11.0"/>
+            </Node>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
